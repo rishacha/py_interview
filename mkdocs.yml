@@ -1,9 +1,23 @@
 site_name: Python-Starter
 repo_url: https://github.com/SyntaxRules/python-starter/
-theme: readthedocs
-pages:
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - python
+        - rust
+nav:
     - 'Overview': 'index.md'
     - 'User Guide':
         - 'Quick Start': 'quick-start.md'
         - 'Installation Instructions': 'installation-instructions.md'
+    - 'Classes':
+        - 'Linked List': 'linked_list.md'
     - 'License': 'license.md'
+plugins:
+    - search
+    - mkdocstrings
+markdown_extensions:
+ - plantuml_markdown:
+     server: 'http://www.plantuml.com/plantuml'
+     format: svg

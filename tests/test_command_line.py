@@ -5,7 +5,7 @@
 import unittest
 import subprocess
 import os
-from starter import StartExample
+from src import StartExample
 
 
 class TestStarter(unittest.TestCase):
