@@ -3,12 +3,9 @@ from io import StringIO
 from unittest.mock import patch
 import unittest
 
-
 class TestLinkedStack(unittest.TestCase):
     def setUp(self) -> None:
-        # super().setUp()
         self.linked_stack = LinkedStack(5)
-        
 
     def test_stack_created(self):
         self.assertEqual(self.linked_stack.top.data,5)

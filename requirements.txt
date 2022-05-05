@@ -1,4 +1,6 @@
-pytest
-pytest-cov
-mock
+# pytest
+# pytest-cov
+# mock
 pylint
+coverage
+# unittest

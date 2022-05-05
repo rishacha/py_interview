@@ -1,5 +1,5 @@
 """
-This class implements a linked list
+This class implements a **SINGLY** linked list
 """
 
 class LinkedList():

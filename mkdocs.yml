@@ -12,12 +12,17 @@ nav:
         - 'Quick Start': 'quick-start.md'
         - 'Installation Instructions': 'installation-instructions.md'
     - 'Classes':
-        - 'Linked List': 'linked_list.md'
+        - 'Singly Linked List': 'lists/singly/linked_list.md'
+        - 'Doubly Linked List': 'lists/doubly/linked_list.md'
     - 'License': 'license.md'
 plugins:
     - search
     - mkdocstrings
 markdown_extensions:
- - plantuml_markdown:
-     server: 'http://www.plantuml.com/plantuml'
-     format: svg
+    - markdown_katex:
+        no_inline_svg: True
+        insert_fonts_css: True
+        # macro-file: macros.tex
+    - plantuml_markdown:
+        server: 'http://www.plantuml.com/plantuml'
+        format: svg
