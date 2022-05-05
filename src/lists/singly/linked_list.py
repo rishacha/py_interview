@@ -12,7 +12,7 @@ class LinkedList():
             1. A pointer to the `next` Node 
             """
             if data is None:
-                raise Exception("data is None")
+                raise Exception("data type cannot be None")
             self.data = data
             self.next = None
         def traverse(self):
@@ -23,9 +23,13 @@ class LinkedList():
             if self.next is not None:
                 return self.next.traverse()
             return
-    def __init__(self,data):
+
+    def __init__(self,data=None):
         if data is None:
-            raise Exception("Data cannot be None")
+            # raise Exception("Data cannot be None")
+            self.size = 0
+            self.root = None
+            return
         self.root = self.Node(data)
         self.last = self.root
         self.size = 1
@@ -34,12 +38,16 @@ class LinkedList():
         """
         Prints the list in order
         """
+        if self.empty():
+            return print("List is empty !")
         return self.root.traverse()
 
-    def append(self,data):
+    def append_tail(self,data):
         """
         Add an element to the tail of the list
         """
+        if data is None:
+            raise Exception("data cannot be None")
         self.last.next = self.Node(data)
         self.last = self.last.next
         self.size +=1
@@ -56,17 +64,23 @@ class LinkedList():
         """
         Deletes first occurence of the data in the list
         """
+        if data is None:
+            raise Exception("Cannot delete None type data from list")
+
+        if self.empty():
+            raise Exception("Cannot delete empty list !")
+
         ptr = None
         temp = self.root
+
+        is_found = False
         while temp is not None:
             if temp.data == data:
+                is_found = True
                 if temp == self.root:
-                    if temp.next is None:
-                        raise Exception("Cannot delete single element root !")
-                    else:
-                        self.root = temp.next
-                        self.size -= 1
-                        break
+                    self.root = temp.next
+                    self.size -= 1
+                    break
                 else:
                     ptr.next = temp.next
                     temp = None
@@ -74,16 +88,40 @@ class LinkedList():
                     break
             ptr = temp
             temp = temp.next
+        if not is_found:
+            print(f"{data} not found in List")
+
     
     def search(self, data):
         """
         Returns True if the data exists in the list
         Return False if the data doesn't exist
         """
-        pass
+        if data is None:
+            raise Exception("Cannot search None type data from list")
 
-    def reverse(self):
-        pass
+        temp = self.root
+        while temp!=None:
+            if temp.data==data:
+                return True
+            temp = temp.next
+        return False
+    
+    # def reverse(self):
+    #     """
+    #     #Reverses the list
+    #     """
+    #     pass
+
+    # def concatenate(self,list2):
+    #     pass
+    
+
+    def empty(self):
+        return True if self.size == 0 else False
+            
+        
+
         
         
             
