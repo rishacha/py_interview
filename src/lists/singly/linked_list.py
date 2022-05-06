@@ -3,6 +3,12 @@ This class implements a **SINGLY** linked list
 """
 
 class LinkedList():
+    def validate(func):
+        def inner(self, data):
+            if data is None:
+                raise Exception("Data type cannot be None")
+            return func(self, data)
+        return inner
     class Node():
         def __init__(self,data) -> None:
             """
@@ -12,7 +18,7 @@ class LinkedList():
             1. A pointer to the `next` Node 
             """
             if data is None:
-                raise Exception("data type cannot be None")
+                raise Exception("Data type cannot be None")
             self.data = data
             self.next = None
         def traverse(self):
@@ -28,57 +34,63 @@ class LinkedList():
         if data is None:
             # raise Exception("Data cannot be None")
             self.size = 0
-            self.root = None
+            self.head = None
             return
-        self.root = self.Node(data)
-        self.last = self.root
+        self.head = self.Node(data)
+        self.last = self.head
         self.size = 1
+    
+    def empty(self):
+        return True if self.size == 0 else False
 
+    def check_empty(func):
+        def inner(self,*args,**kwargs):
+            if self.empty():
+                raise Exception("List is empty !!")
+            return func(self, *args,**kwargs)
+        return inner
+    
+    @check_empty
     def traverse(self):
         """
         Prints the list in order
         """
-        if self.empty():
-            return print("List is empty !")
-        return self.root.traverse()
-
+        return self.head.traverse()
+    @validate
     def append_tail(self,data):
         """
         Add an element to the tail of the list
         """
-        if data is None:
-            raise Exception("data cannot be None")
+        
         self.last.next = self.Node(data)
         self.last = self.last.next
         self.size +=1
+    
+    @validate
     def append_head(self,data):
         """
         Add an element to the head of the list
         """
-        temp = self.root
-        self.root = self.Node(data)
-        self.root.next = temp
+        temp = self.head
+        self.head = self.Node(data)
+        self.head.next = temp
         self.size += 1
 
+    @validate
+    @check_empty
     def delete(self,data):
         """
         Deletes first occurence of the data in the list
         """
-        if data is None:
-            raise Exception("Cannot delete None type data from list")
-
-        if self.empty():
-            raise Exception("Cannot delete empty list !")
-
         ptr = None
-        temp = self.root
+        temp = self.head
 
         is_found = False
         while temp is not None:
             if temp.data == data:
                 is_found = True
-                if temp == self.root:
-                    self.root = temp.next
+                if temp == self.head:
+                    self.head = temp.next
                     self.size -= 1
                     break
                 else:
@@ -90,17 +102,17 @@ class LinkedList():
             temp = temp.next
         if not is_found:
             print(f"{data} not found in List")
-
     
+    
+
+    @validate
+    @check_empty
     def search(self, data):
         """
         Returns True if the data exists in the list
         Return False if the data doesn't exist
         """
-        if data is None:
-            raise Exception("Cannot search None type data from list")
-
-        temp = self.root
+        temp = self.head
         while temp!=None:
             if temp.data==data:
                 return True
@@ -117,8 +129,7 @@ class LinkedList():
     #     pass
     
 
-    def empty(self):
-        return True if self.size == 0 else False
+    
             
         
 

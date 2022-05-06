@@ -6,15 +6,16 @@ class LinkedQueue(LinkedList):
     """
     def __init__(self, data=None):
         super().__init__(data)
-
+    
+    @LinkedList.validate
     def enqueue(self, data):
+        # TODO Analyze the complexity of this function and improve it if required
         self.append_tail(data=data)
-
+    
+    @LinkedList.check_empty
     def dequeue(self):
-        if self.empty():
-            raise Exception("Cannot dequeue from empty queue !")
-        data = self.root.data
-        self.root = self.root.next
+        data = self.head.data
+        self.head = self.head.next
         self.size-=1
         return data
     

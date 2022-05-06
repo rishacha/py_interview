@@ -1,11 +1,16 @@
-# Linked List
+# Linked Stack
 
-### Class diagram
 ```plantuml
 class Node {
   {field} Object data
   {field} Pointer next
   {method} void traverse()
+}
+
+class LinkedStack {
+  {field} Pointer top
+  {method} void push (Object data)
+  {method} Object pop()
 }
 
 class LinkedList{
@@ -18,6 +23,8 @@ class LinkedList{
   {method} bool empty()
 }
 Node --|> LinkedList
+LinkedList --|> LinkedStack
 ```
 
-::: lists.singly.linked_list.LinkedList
+## Reference
+::: lists.singly.linked_stack.LinkedStack

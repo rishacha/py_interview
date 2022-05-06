@@ -1,5 +1,5 @@
-site_name: Python-Starter
-repo_url: https://github.com/SyntaxRules/python-starter/
+site_name: Python-Interview-Preparation
+repo_url: https://github.com/rishacha/py_interview
 theme:
     name: readthedocs
     highlightjs: true
@@ -8,16 +8,30 @@ theme:
         - rust
 nav:
     - 'Overview': 'index.md'
+    - 'CheckList': 'checklist.md'
     - 'User Guide':
         - 'Quick Start': 'quick-start.md'
         - 'Installation Instructions': 'installation-instructions.md'
-    - 'Classes':
-        - 'Singly Linked List': 'lists/singly/linked_list.md'
-        - 'Doubly Linked List': 'lists/doubly/linked_list.md'
+    - 'Data Structures':
+        - 'Singly Linked':
+            - 'Linked List': 'lists/singly/linked_list.md'
+            - 'Linked Stack': 'lists/singly/linked_stack.md'
+            # - 'Linked Queue': 'lists/singly/linked_list.md'
+            # - 'Circular Linked List': 'lists/singly/linked_list.md'
+        # - 'Doubly Linked':
+        #     - 'Linked List': 'lists/doubly/linked_list.md'
     - 'License': 'license.md'
 plugins:
     - search
-    - mkdocstrings
+    - mkdocstrings:
+        default_handler: python
+        handlers:
+            python:
+                selection:
+                    docstring_style: google
+                rendering:
+                    show_root_heading: yes
+                    show_source: false
 markdown_extensions:
     - markdown_katex:
         no_inline_svg: True

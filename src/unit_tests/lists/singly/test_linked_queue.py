@@ -31,7 +31,7 @@ class TestLinkedQueue(unittest.TestCase):
         with self.assertRaises(Exception) as err:
             empty_queue.dequeue()
         self.assertEqual(str(err.exception),
-                         "Cannot dequeue from empty queue !")
+                         "List is empty !!")
         
 
 

@@ -11,12 +11,12 @@ class CircularList(LinkedList):
         return self.append(data)
 
     def append(self,data):
-        temp = self.root
-        while temp.next is not None and temp.next != self.root:
+        temp = self.head
+        while temp.next is not None and temp.next != self.head:
             temp = temp.next
         temp.next = self.Node(data)
         temp = temp.next
-        temp.next = self.root
+        temp.next = self.head
         self.size+=1
     
     def delete(self,data):
@@ -27,18 +27,18 @@ class CircularList(LinkedList):
             raise Exception("Cannot delete empty list !")
     
         ptr = None
-        temp = self.root
+        temp = self.head
 
         is_found = False
-        while temp.next is not None and temp.next!=self.root:
+        while temp.next is not None and temp.next!=self.head:
             if temp.data == data:
                 is_found = True
-                if temp == self.root:
-                    last = self.root
-                    while last.next is not None and last.next != self.root:
+                if temp == self.head:
+                    last = self.head
+                    while last.next is not None and last.next != self.head:
                         last = last.next
-                    self.root = temp.next
-                    last.next = self.root
+                    self.head = temp.next
+                    last.next = self.head
                     self.size -= 1
                     break
                 else:
@@ -63,8 +63,8 @@ class CircularList(LinkedList):
         if self.empty():
             raise Exception("Cannot search empty list !")
 
-        temp = self.root
-        while temp.next is not None and temp.next != self.root:
+        temp = self.head
+        while temp.next is not None and temp.next != self.head:
             if temp.data == data:
                 return True
             temp = temp.next
@@ -72,9 +72,9 @@ class CircularList(LinkedList):
             return True
         return False
     def traverse(self):
-        temp = self.root
-        while temp.next is not None and temp.next != self.root:
+        temp = self.head
+        while temp.next is not None and temp.next != self.head:
             print(temp.data, end="-->")
             temp = temp.next
-        print(temp.data, end="-->ROOT-CIRCULAR")
+        print(temp.data, end="-->head-CIRCULAR")
 

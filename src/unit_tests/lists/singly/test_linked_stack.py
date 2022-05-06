@@ -38,5 +38,5 @@ class TestLinkedStack(unittest.TestCase):
         with self.assertRaises(Exception) as err:
             self.linked_stack.pop()
         self.assertEqual(str(err.exception),
-                         "Cannot pop from empty stack !")
+                         "List is empty !!")
 

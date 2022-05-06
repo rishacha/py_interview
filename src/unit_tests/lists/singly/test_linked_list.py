@@ -12,7 +12,7 @@ class TestLinkedList(unittest.TestCase):
         with self.assertRaises(Exception) as err:
             self.sample_list.Node(None)
         self.assertEqual(str(err.exception),
-                         "data type cannot be None")
+                         "Data type cannot be None")
         
     
     def test_empty_list(self):
@@ -32,7 +32,7 @@ class TestLinkedList(unittest.TestCase):
         with self.assertRaises(Exception) as err:
             self.sample_list.append_tail(None)
         self.assertEqual(str(err.exception),
-                         "data cannot be None")
+                         "Data type cannot be None")
 
     def test_append_head(self):
         self.sample_list.append_head(3)
@@ -63,15 +63,15 @@ class TestLinkedList(unittest.TestCase):
             empty_list = LinkedList()
             empty_list.delete(3)
         self.assertEqual(str(err.exception),
-                         "Cannot delete empty list !")
+                         "List is empty !!")
         
 
     def test_deletion_root(self):
         self.sample_list.delete(1)
         self.assertEqual(self.sample_list.size,0)
-        with patch('sys.stdout', new=StringIO()) as fake_out:
+        with self.assertRaises(Exception) as err:
             self.sample_list.traverse()
-            self.assertEqual(fake_out.getvalue(), "List is empty !\n")
+        self.assertEqual(str(err.exception), "List is empty !!")
 
     def test_delete_empty_list(self):
         
@@ -79,15 +79,17 @@ class TestLinkedList(unittest.TestCase):
             self.sample_list.delete(1)
             self.sample_list.delete(data=None)
         self.assertEqual(str(err.exception),
-                         "Cannot delete None type data from list")
+                         "Data type cannot be None")
 
     def test_search(self):
         self.sample_list.append_tail(4)
         self.sample_list.append_tail(5)
+        
+        self.assertEqual(self.sample_list.search(4), True)
+        self.assertEqual(self.sample_list.search(6), False)
         with self.assertRaises(Exception) as err:
             self.sample_list.search(None)
-        self.assertEqual(str(err.exception), "Cannot search None type data from list")
+        self.assertEqual(str(err.exception), "Data type cannot be None")
 
-        self.assertEqual(self.sample_list.search(4),True)
-        self.assertEqual(self.sample_list.search(6), False)
+        
        

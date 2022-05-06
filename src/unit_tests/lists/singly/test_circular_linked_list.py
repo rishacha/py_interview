@@ -10,29 +10,29 @@ class TestCicularList(unittest.TestCase):
     
     def test_append(self):
         self.circular_list.append(5)
-        self.assertEqual(self.circular_list.root, self.circular_list.root.next.next)
+        self.assertEqual(self.circular_list.head, self.circular_list.head.next.next)
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.circular_list.traverse()
-            self.assertEqual(fake_out.getvalue(), "4-->5-->ROOT-CIRCULAR")
+            self.assertEqual(fake_out.getvalue(), "4-->5-->head-CIRCULAR")
 
     def test_delete(self):
         self.circular_list.append_head(7)
         self.circular_list.append_tail(10)
 
         self.circular_list.delete(4)
-        self.assertEqual(self.circular_list.root,
-                         self.circular_list.root.next.next)
+        self.assertEqual(self.circular_list.head,
+                         self.circular_list.head.next.next)
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.circular_list.traverse()
-            self.assertEqual(fake_out.getvalue(), "7-->10-->ROOT-CIRCULAR")
+            self.assertEqual(fake_out.getvalue(), "7-->10-->head-CIRCULAR")
         
         self.circular_list.append(8)
         self.circular_list.delete(10)
-        self.assertEqual(self.circular_list.root,
-                         self.circular_list.root.next.next)
+        self.assertEqual(self.circular_list.head,
+                         self.circular_list.head.next.next)
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.circular_list.traverse()
-            self.assertEqual(fake_out.getvalue(), "7-->8-->ROOT-CIRCULAR")
+            self.assertEqual(fake_out.getvalue(), "7-->8-->head-CIRCULAR")
 
     def test_search(self):
         self.circular_list.append_head(7)
