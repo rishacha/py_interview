@@ -16,10 +16,10 @@ nav:
         - 'Singly Linked':
             - 'Linked List': 'lists/singly/linked_list.md'
             - 'Linked Stack': 'lists/singly/linked_stack.md'
-            # - 'Linked Queue': 'lists/singly/linked_list.md'
-            # - 'Circular Linked List': 'lists/singly/linked_list.md'
-        # - 'Doubly Linked':
-        #     - 'Linked List': 'lists/doubly/linked_list.md'
+            - 'Linked Queue': 'lists/singly/linked_queue.md'
+            - 'Circular Linked List': 'lists/singly/circular_list.md'
+        - 'Doubly Linked':
+            - 'Linked List': 'lists/doubly/linked_list.md'
     - 'License': 'license.md'
 plugins:
     - search

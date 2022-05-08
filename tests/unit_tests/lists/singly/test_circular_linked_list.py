@@ -47,22 +47,22 @@ class TestCicularList(unittest.TestCase):
         with self.assertRaises(Exception) as err:
             empty_circular_queue.delete(4)
         self.assertEqual(str(err.exception),
-                         "Cannot delete empty list !")
+                         "List is empty !!")
         
         with self.assertRaises(Exception) as err:
             self.circular_list.delete(None)
         self.assertEqual(str(err.exception),
-                         "Cannot delete None type data from circular list")
+                         "Data type cannot be None")
         empty_circular_queue = CircularList()
         with self.assertRaises(Exception) as err:
             empty_circular_queue.search(4)
         self.assertEqual(str(err.exception),
-                         "Cannot search empty list !")
+                         "List is empty !!")
 
         with self.assertRaises(Exception) as err:
             self.circular_list.search(None)
         self.assertEqual(str(err.exception),
-                         "Cannot search None type data from circular list")
+                         "Data type cannot be None")
 
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.circular_list.delete(5)

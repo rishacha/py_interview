@@ -14,7 +14,8 @@ class LinkedStack {
 }
 
 class LinkedList{
-  {field} Pointer root
+  {field} Pointer head
+  {field} Pointer tail
   {method} void append_tail(Object data)
   {method} void append_head(Object data)
   {method} bool search(Object data)

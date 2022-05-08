@@ -2,22 +2,26 @@ r"""
 This class implements a **DOUBLY** linked list
 """
 
-from src.lists.singly.linked_list import LinkedList
-
-
 class DoublyLinkedList():
+    def validate(func):
+        def inner(self, data):
+            if data is None:
+                raise Exception("Data type cannot be None")
+            return func(self, data)
+        return inner
+
     class BiNode():
         def __init__(self,data):
             self.data = data 
             self.next = None
             self.prev = None
         def traverse_forward(self):
-            print(self.data,end="-->")
+            print(self.data,end="<-->")
             if self.next is not None:
                 return self.next.traverse_forward()
             return
         def traverse_backward(self):
-            print(self.data,end="-->")
+            print(self.data,end="<-->")
             if self.prev is not None:
                 return self.prev.traverse_backward()
             return
@@ -32,19 +36,21 @@ class DoublyLinkedList():
             self.size=1
             self.tail = self.head
     
+    def empty(self):
+        return True if self.size == 0 else False
+    
     def check_empty(func):
         def inner(self, *args, **kwargs):
             if self.empty():
-                raise Exception("List is empty  !!")
-            func(self, *args, **kwargs)
+                raise Exception("List is empty !!")
+            return func(self, *args, **kwargs)
         return inner
-
-    def validate(func):
-        def inner(self, data):
-            if data is None:
-                raise Exception("Data type cannot be None")
-            func(self, data)
-        return inner
+    @check_empty
+    def traverse_forward(self):
+        self.head.traverse_forward()
+    @check_empty
+    def traverse_backward(self):
+        self.tail.traverse_backward()
     
     @validate
     def append_head(self, data):
@@ -79,8 +85,29 @@ class DoublyLinkedList():
         return False
     
     @validate
+    @check_empty
     def delete(self, data):
-        pass
+        temp = self.head
+        while temp!= None:
+            if temp.data==data:
+                self.size-=1
+                if temp == self.head and temp == self.tail:
+                    self.head = None
+                    self.tail = None
+                elif temp == self.head:
+                    self.head = temp.next
+                    self.head.prev = None
+                    return
+                elif temp == self.tail:
+                    self.tail = temp.prev
+                    self.tail.next = None
+                    return
+                else:
+                    temp.prev.next = temp.next
+                    temp.next.prev = temp.prev
+                    temp = None
+                    return
+            temp = temp.next
 
         
     

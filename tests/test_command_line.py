@@ -5,16 +5,16 @@
 import unittest
 import subprocess
 import os
-from src import StartExample
+# from src import StartExample
 
 
-class TestStarter(unittest.TestCase):
+# class TestStarter(unittest.TestCase):
 
-    def setUp(self):
-        self.command = ['start_example']
+#     def setUp(self):
+#         self.command = ['start_example']
 
-    def test_run(self):
-        pipe = subprocess.Popen(self.command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        stdout, stderr = pipe.communicate()
-        print(stdout)
-        self.assertEquals(stdout.splitlines(), "Version: 0.1.0\nHello World!\n".splitlines())
+#     def test_run(self):
+#         pipe = subprocess.Popen(self.command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#         stdout, stderr = pipe.communicate()
+#         print(stdout)
+#         self.assertEquals(stdout.splitlines(), "Version: 0.1.0\nHello World!\n".splitlines())

@@ -19,13 +19,9 @@ class CircularList(LinkedList):
         temp.next = self.head
         self.size+=1
     
+    @LinkedList.validate
+    @LinkedList.check_empty
     def delete(self,data):
-        if data is None:
-            raise Exception("Cannot delete None type data from circular list")
-
-        if self.empty():
-            raise Exception("Cannot delete empty list !")
-    
         ptr = None
         temp = self.head
 
@@ -51,17 +47,13 @@ class CircularList(LinkedList):
         if not is_found:
             print(f"{data} not found in Circular List")
 
+    @LinkedList.validate
+    @LinkedList.check_empty
     def search(self,data):
         """
         Returns True if the data exists in the circular list
         Return False if the data doesn't exist
         """
-
-        if data is None:
-            raise Exception("Cannot search None type data from circular list")
-        
-        if self.empty():
-            raise Exception("Cannot search empty list !")
 
         temp = self.head
         while temp.next is not None and temp.next != self.head:

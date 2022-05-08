@@ -4,4 +4,5 @@ omit =
     */site-packages/*
     */distutils/*
     */dist-packages/*
-    unit_tests/*
+    */unit_tests/*
+    tests/*
