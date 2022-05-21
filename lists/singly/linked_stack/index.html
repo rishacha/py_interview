@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Linked Stack - Python-Interview-Preparation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Linked Stack";
+        var mkdocs_page_input_path = "lists/singly/linked_stack.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Python-Interview-Preparation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../checklist/">CheckList</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../quick-start/">Quick Start</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../installation-instructions/">Installation Instructions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data Structures</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Singly Linked</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../linked_list/">Linked List</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Linked Stack</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lists.singly.linked_stack.LinkedStack">LinkedStack</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#lists.singly.linked_stack.LinkedStack.__init__">__init__()</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linked_queue/">Linked Queue</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../circular_list/">Circular Linked List</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Doubly Linked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../doubly/linked_list/">Linked List</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../license/">License</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Python-Interview-Preparation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Data Structures &raquo;</li>
+          <li>Singly Linked &raquo;</li><li>Linked Stack</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/rishacha/py_interview/edit/master/docs/lists/singly/linked_stack.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="linked-stack">Linked Stack</h1>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI1MDVweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjI1MnB4O2hlaWdodDo1MDVweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNTIgNTA1IiB3aWR0aD0iMjUycHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48IS0tTUQ1PVszZmVlNzU1ODNiYjdhNjRmNjhkODQzYTNjOTUzNGFiM10KY2xhc3MgTm9kZS0tPjxnIGlkPSJlbGVtX05vZGUiPjxyZWN0IGNvZGVMaW5lPSIxIiBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9Ijk2Ljg5MDYiIGlkPSJOb2RlIiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMTYiIHg9IjY4IiB5PSI3Ii8+PGVsbGlwc2UgY3g9IjEwNC4xNSIgY3k9IjIzIiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTEwNi40OTM4LDE4LjY3MTkgQzEwNS41NTYzLDE4LjIzNDQgMTA0Ljk2MjUsMTguMDkzOCAxMDQuMDg3NSwxOC4wOTM4IEMxMDEuNDYyNSwxOC4wOTM4IDk5LjQ2MjUsMjAuMTcxOSA5OS40NjI1LDIyLjg5MDYgTDk5LjQ2MjUsMjQuMDE1NiBDOTkuNDYyNSwyNi41OTM4IDEwMS41NzE5LDI4LjQ4NDQgMTA0LjQ2MjUsMjguNDg0NCBDMTA1LjY4MTMsMjguNDg0NCAxMDYuODM3NSwyOC4xODc1IDEwNy41ODc1LDI3LjY0MDYgQzEwOC4xNjU2LDI3LjIzNDQgMTA4LjQ5MzgsMjYuNzgxMyAxMDguNDkzOCwyNi4zOTA2IEMxMDguNDkzOCwyNS45Mzc1IDEwOC4xMDMxLDI1LjU0NjkgMTA3LjYzNDQsMjUuNTQ2OSBDMTA3LjQxNTYsMjUuNTQ2OSAxMDcuMjEyNSwyNS42MjUgMTA3LjAyNSwyNS44MTI1IEMxMDYuNTcxOSwyNi4yOTY5IDEwNi41NzE5LDI2LjI5NjkgMTA2LjM4NDQsMjYuMzkwNiBDMTA1Ljk2MjUsMjYuNjU2MyAxMDUuMjc1LDI2Ljc4MTMgMTA0LjUwOTQsMjYuNzgxMyBDMTAyLjQ2MjUsMjYuNzgxMyAxMDEuMTY1NiwyNS42ODc1IDEwMS4xNjU2LDIzLjk4NDQgTDEwMS4xNjU2LDIyLjg5MDYgQzEwMS4xNjU2LDIxLjEwOTQgMTAyLjQxNTYsMTkuNzk2OSAxMDQuMTUsMTkuNzk2OSBDMTA0LjcyODEsMTkuNzk2OSAxMDUuMzM3NSwxOS45NTMxIDEwNS44MDYzLDIwLjIwMzEgQzEwNi4yOTA2LDIwLjQ4NDQgMTA2LjQ2MjUsMjAuNzAzMSAxMDYuNTU2MywyMS4xMDk0IEMxMDYuNjE4OCwyMS41MTU2IDEwNi42NSwyMS42NDA2IDEwNi43OTA2LDIxLjc2NTYgQzEwNi45MzEzLDIxLjkwNjMgMTA3LjE2NTYsMjIuMDE1NiAxMDcuMzg0NCwyMi4wMTU2IEMxMDcuNjUsMjIuMDE1NiAxMDcuOTE1NiwyMS44NzUgMTA4LjA4NzUsMjEuNjU2MyBDMTA4LjE5NjksMjEuNSAxMDguMjI4MSwyMS4zMTI1IDEwOC4yMjgxLDIwLjg5MDYgTDEwOC4yMjgxLDE5LjQ2ODggQzEwOC4yMjgxLDE5LjAzMTMgMTA4LjIxMjUsMTguOTA2MyAxMDguMTE4OCwxOC43NSBDMTA3Ljk2MjUsMTguNDg0NCAxMDcuNjgxMywxOC4zNDM4IDEwNy4zODQ0LDE4LjM0MzggQzEwNy4wODc1LDE4LjM0MzggMTA2Ljg4NDQsMTguNDM3NSAxMDYuNjY1NiwxOC43NSBMMTA2LjQ5MzgsMTguNjcxOSBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjM3IiB4PSIxMjIuODUiIHk9IjI3Ljg0NjciPk5vZGU8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iNjkiIHgyPSIxODMiIHkxPSIzOSIgeTI9IjM5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODUiIHg9Ijc0IiB5PSI1NS45OTUxIj5PYmplY3QgZGF0YTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5MCIgeD0iNzQiIHk9IjcyLjI5MiI+UG9pbnRlciBuZXh0PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjY5IiB4Mj0iMTgzIiB5MT0iNzkuNTkzOCIgeTI9Ijc5LjU5MzgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDQiIHg9Ijc0IiB5PSI5Ni41ODg5Ij52b2lkIHRyYXZlcnNlKCk8L3RleHQ+PC9nPjwhLS1NRDU9W2EwZjVmYmVlMGUwYzM4MDQyYjliZTdkOWU2ZjQ5NTA3XQpjbGFzcyBMaW5rZWRTdGFjay0tPjxnIGlkPSJlbGVtX0xpbmtlZFN0YWNrIj48cmVjdCBjb2RlTGluZT0iNyIgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI5Ni44OTA2IiBpZD0iTGlua2VkU3RhY2siIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjE3OSIgeD0iMzYuNSIgeT0iNDAyIi8+PGVsbGlwc2UgY3g9Ijc3LjYiIGN5PSI0MTgiIGZpbGw9IiNBREQxQjIiIHJ4PSIxMSIgcnk9IjExIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cGF0aCBkPSJNNzkuOTQzOCw0MTMuNjcxOSBDNzkuMDA2Myw0MTMuMjM0NCA3OC40MTI1LDQxMy4wOTM4IDc3LjUzNzUsNDEzLjA5MzggQzc0LjkxMjUsNDEzLjA5MzggNzIuOTEyNSw0MTUuMTcxOSA3Mi45MTI1LDQxNy44OTA2IEw3Mi45MTI1LDQxOS4wMTU2IEM3Mi45MTI1LDQyMS41OTM4IDc1LjAyMTksNDIzLjQ4NDQgNzcuOTEyNSw0MjMuNDg0NCBDNzkuMTMxMyw0MjMuNDg0NCA4MC4yODc1LDQyMy4xODc1IDgxLjAzNzUsNDIyLjY0MDYgQzgxLjYxNTYsNDIyLjIzNDQgODEuOTQzOCw0MjEuNzgxMyA4MS45NDM4LDQyMS4zOTA2IEM4MS45NDM4LDQyMC45Mzc1IDgxLjU1MzEsNDIwLjU0NjkgODEuMDg0NCw0MjAuNTQ2OSBDODAuODY1Niw0MjAuNTQ2OSA4MC42NjI1LDQyMC42MjUgODAuNDc1LDQyMC44MTI1IEM4MC4wMjE5LDQyMS4yOTY5IDgwLjAyMTksNDIxLjI5NjkgNzkuODM0NCw0MjEuMzkwNiBDNzkuNDEyNSw0MjEuNjU2MyA3OC43MjUsNDIxLjc4MTMgNzcuOTU5NCw0MjEuNzgxMyBDNzUuOTEyNSw0MjEuNzgxMyA3NC42MTU2LDQyMC42ODc1IDc0LjYxNTYsNDE4Ljk4NDQgTDc0LjYxNTYsNDE3Ljg5MDYgQzc0LjYxNTYsNDE2LjEwOTQgNzUuODY1Niw0MTQuNzk2OSA3Ny42LDQxNC43OTY5IEM3OC4xNzgxLDQxNC43OTY5IDc4Ljc4NzUsNDE0Ljk1MzEgNzkuMjU2Myw0MTUuMjAzMSBDNzkuNzQwNiw0MTUuNDg0NCA3OS45MTI1LDQxNS43MDMxIDgwLjAwNjMsNDE2LjEwOTQgQzgwLjA2ODgsNDE2LjUxNTYgODAuMSw0MTYuNjQwNiA4MC4yNDA2LDQxNi43NjU2IEM4MC4zODEzLDQxNi45MDYzIDgwLjYxNTYsNDE3LjAxNTYgODAuODM0NCw0MTcuMDE1NiBDODEuMSw0MTcuMDE1NiA4MS4zNjU2LDQxNi44NzUgODEuNTM3NSw0MTYuNjU2MyBDODEuNjQ2OSw0MTYuNSA4MS42NzgxLDQxNi4zMTI1IDgxLjY3ODEsNDE1Ljg5MDYgTDgxLjY3ODEsNDE0LjQ2ODggQzgxLjY3ODEsNDE0LjAzMTMgODEuNjYyNSw0MTMuOTA2MyA4MS41Njg4LDQxMy43NSBDODEuNDEyNSw0MTMuNDg0NCA4MS4xMzEzLDQxMy4zNDM4IDgwLjgzNDQsNDEzLjM0MzggQzgwLjUzNzUsNDEzLjM0MzggODAuMzM0NCw0MTMuNDM3NSA4MC4xMTU2LDQxMy43NSBMNzkuOTQzOCw0MTMuNjcxOSBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg5IiB4PSI5Ny40IiB5PSI0MjIuODQ2NyI+TGlua2VkU3RhY2s8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iMzcuNSIgeDI9IjIxNC41IiB5MT0iNDM0IiB5Mj0iNDM0Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODMiIHg9IjQyLjUiIHk9IjQ1MC45OTUxIj5Qb2ludGVyIHRvcDwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSIzNy41IiB4Mj0iMjE0LjUiIHkxPSI0NTguMjk2OSIgeTI9IjQ1OC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTY3IiB4PSI0Mi41IiB5PSI0NzUuMjkyIj52b2lkIHB1c2ggKE9iamVjdCBkYXRhKTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5MiIgeD0iNDIuNSIgeT0iNDkxLjU4ODkiPk9iamVjdCBwb3AoKTwvdGV4dD48L2c+PCEtLU1ENT1bYTA0NmQ2NDBkODhlZDYzZjYyMmY1NGFlN2JmOTYxZmJdCmNsYXNzIExpbmtlZExpc3QtLT48ZyBpZD0iZWxlbV9MaW5rZWRMaXN0Ij48cmVjdCBjb2RlTGluZT0iMTMiIGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMTc4LjM3NSIgaWQ9IkxpbmtlZExpc3QiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjIzOCIgeD0iNyIgeT0iMTY0Ii8+PGVsbGlwc2UgY3g9Ijg0Ljc1IiBjeT0iMTgwIiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTg3LjA5MzgsMTc1LjY3MTkgQzg2LjE1NjMsMTc1LjIzNDQgODUuNTYyNSwxNzUuMDkzOCA4NC42ODc1LDE3NS4wOTM4IEM4Mi4wNjI1LDE3NS4wOTM4IDgwLjA2MjUsMTc3LjE3MTkgODAuMDYyNSwxNzkuODkwNiBMODAuMDYyNSwxODEuMDE1NiBDODAuMDYyNSwxODMuNTkzOCA4Mi4xNzE5LDE4NS40ODQ0IDg1LjA2MjUsMTg1LjQ4NDQgQzg2LjI4MTMsMTg1LjQ4NDQgODcuNDM3NSwxODUuMTg3NSA4OC4xODc1LDE4NC42NDA2IEM4OC43NjU2LDE4NC4yMzQ0IDg5LjA5MzgsMTgzLjc4MTMgODkuMDkzOCwxODMuMzkwNiBDODkuMDkzOCwxODIuOTM3NSA4OC43MDMxLDE4Mi41NDY5IDg4LjIzNDQsMTgyLjU0NjkgQzg4LjAxNTYsMTgyLjU0NjkgODcuODEyNSwxODIuNjI1IDg3LjYyNSwxODIuODEyNSBDODcuMTcxOSwxODMuMjk2OSA4Ny4xNzE5LDE4My4yOTY5IDg2Ljk4NDQsMTgzLjM5MDYgQzg2LjU2MjUsMTgzLjY1NjMgODUuODc1LDE4My43ODEzIDg1LjEwOTQsMTgzLjc4MTMgQzgzLjA2MjUsMTgzLjc4MTMgODEuNzY1NiwxODIuNjg3NSA4MS43NjU2LDE4MC45ODQ0IEw4MS43NjU2LDE3OS44OTA2IEM4MS43NjU2LDE3OC4xMDk0IDgzLjAxNTYsMTc2Ljc5NjkgODQuNzUsMTc2Ljc5NjkgQzg1LjMyODEsMTc2Ljc5NjkgODUuOTM3NSwxNzYuOTUzMSA4Ni40MDYzLDE3Ny4yMDMxIEM4Ni44OTA2LDE3Ny40ODQ0IDg3LjA2MjUsMTc3LjcwMzEgODcuMTU2MywxNzguMTA5NCBDODcuMjE4OCwxNzguNTE1NiA4Ny4yNSwxNzguNjQwNiA4Ny4zOTA2LDE3OC43NjU2IEM4Ny41MzEzLDE3OC45MDYzIDg3Ljc2NTYsMTc5LjAxNTYgODcuOTg0NCwxNzkuMDE1NiBDODguMjUsMTc5LjAxNTYgODguNTE1NiwxNzguODc1IDg4LjY4NzUsMTc4LjY1NjMgQzg4Ljc5NjksMTc4LjUgODguODI4MSwxNzguMzEyNSA4OC44MjgxLDE3Ny44OTA2IEw4OC44MjgxLDE3Ni40Njg4IEM4OC44MjgxLDE3Ni4wMzEzIDg4LjgxMjUsMTc1LjkwNjMgODguNzE4OCwxNzUuNzUgQzg4LjU2MjUsMTc1LjQ4NDQgODguMjgxMywxNzUuMzQzOCA4Ny45ODQ0LDE3NS4zNDM4IEM4Ny42ODc1LDE3NS4zNDM4IDg3LjQ4NDQsMTc1LjQzNzUgODcuMjY1NiwxNzUuNzUgTDg3LjA5MzgsMTc1LjY3MTkgWiAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3NCIgeD0iMTA1LjI1IiB5PSIxODQuODQ2NyI+TGlua2VkTGlzdDwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI4IiB4Mj0iMjQ0IiB5MT0iMTk2IiB5Mj0iMTk2Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTIiIHg9IjEzIiB5PSIyMTIuOTk1MSI+UG9pbnRlciBoZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjgwIiB4PSIxMyIgeT0iMjI5LjI5MiI+UG9pbnRlciB0YWlsPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjgiIHgyPSIyNDQiIHkxPSIyMzYuNTkzOCIgeTI9IjIzNi41OTM4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjE0IiB4PSIxMyIgeT0iMjUzLjU4ODkiPnZvaWQgYXBwZW5kX3RhaWwoT2JqZWN0IGRhdGEpPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIyNiIgeD0iMTMiIHk9IjI2OS44ODU3Ij52b2lkIGFwcGVuZF9oZWFkKE9iamVjdCBkYXRhKTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNzgiIHg9IjEzIiB5PSIyODYuMTgyNiI+Ym9vbCBzZWFyY2goT2JqZWN0IGRhdGEpPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNCIgeD0iMTMiIHk9IjMwMi40Nzk1Ij52b2lkIHRyYXZlcnNlKCk8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTc2IiB4PSIxMyIgeT0iMzE4Ljc3NjQiPnZvaWQgZGVsZXRlKE9iamVjdCBkYXRhKTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5NCIgeD0iMTMiIHk9IjMzNS4wNzMyIj5ib29sIGVtcHR5KCk8L3RleHQ+PC9nPjwhLS1NRDU9Wzk1OGJlMzA4NmM3YjM3MzAyMjY1NzM1YjU0NTRlN2JkXQpsaW5rIE5vZGUgdG8gTGlua2VkTGlzdC0tPjxnIGlkPSJsaW5rX05vZGVfTGlua2VkTGlzdCI+PHBhdGggY29kZUxpbmU9IjIzIiBkPSJNMTI2LDEwNC4wNzUgQzEyNiwxMTYuMTQ5IDEyNiwxMjkuNjI0IDEyNiwxNDMuMzkxICIgZmlsbD0ibm9uZSIgaWQ9Ik5vZGUtdG8tTGlua2VkTGlzdCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBvbHlnb24gZmlsbD0ibm9uZSIgcG9pbnRzPSIxMzMsMTQzLjYzOSwxMjYsMTYzLjYzOSwxMTksMTQzLjYzOSwxMzMsMTQzLjYzOSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PC9nPjwhLS1NRDU9Wzg0MTc2ZGZlZDU3MTEyMzI0NTM3MDdlNGM4NjVkOTUyXQpsaW5rIExpbmtlZExpc3QgdG8gTGlua2VkU3RhY2stLT48ZyBpZD0ibGlua19MaW5rZWRMaXN0X0xpbmtlZFN0YWNrIj48cGF0aCBjb2RlTGluZT0iMjQiIGQ9Ik0xMjYsMzQyLjAyNyBDMTI2LDM1NS4zNjggMTI2LDM2OC45NTMgMTI2LDM4MS43NzUgIiBmaWxsPSJub25lIiBpZD0iTGlua2VkTGlzdC10by1MaW5rZWRTdGFjayIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBvbHlnb24gZmlsbD0ibm9uZSIgcG9pbnRzPSIxMzMsMzgxLjc5NiwxMjYsNDAxLjc5NTUsMTE5LDM4MS43OTUsMTMzLDM4MS43OTYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjwvZz48IS0tTUQ1PVsxMWUzNWRmMmFhZjJkZWY4ZDRjN2M1Y2Y1MmI5Y2MwNV0KQHN0YXJ0dW1sDQpjbGFzcyBOb2RlIHsNCiAge2ZpZWxkfSBPYmplY3QgZGF0YQ0KICB7ZmllbGR9IFBvaW50ZXIgbmV4dA0KICB7bWV0aG9kfSB2b2lkIHRyYXZlcnNlKCkNCn0NCg0KY2xhc3MgTGlua2VkU3RhY2sgew0KICB7ZmllbGR9IFBvaW50ZXIgdG9wDQogIHttZXRob2R9IHZvaWQgcHVzaCAoT2JqZWN0IGRhdGEpDQogIHttZXRob2R9IE9iamVjdCBwb3AoKQ0KfQ0KDQpjbGFzcyBMaW5rZWRMaXN0ew0KICB7ZmllbGR9IFBvaW50ZXIgaGVhZA0KICB7ZmllbGR9IFBvaW50ZXIgdGFpbA0KICB7bWV0aG9kfSB2b2lkIGFwcGVuZF90YWlsKE9iamVjdCBkYXRhKQ0KICB7bWV0aG9kfSB2b2lkIGFwcGVuZF9oZWFkKE9iamVjdCBkYXRhKQ0KICB7bWV0aG9kfSBib29sIHNlYXJjaChPYmplY3QgZGF0YSkNCiAge21ldGhvZH0gdm9pZCB0cmF2ZXJzZSgpDQogIHttZXRob2R9IHZvaWQgZGVsZXRlKE9iamVjdCBkYXRhKQ0KICB7bWV0aG9kfSBib29sIGVtcHR5KCkNCn0NCk5vZGUgLSAtfD4gTGlua2VkTGlzdA0KTGlua2VkTGlzdCAtIC18PiBMaW5rZWRTdGFjaw0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIyLjZiZXRhMShVbmtub3duIGNvbXBpbGUgdGltZSkKKEdQTCBzb3VyY2UgZGlzdHJpYnV0aW9uKQpKYXZhIFJ1bnRpbWU6IEphdmEoVE0pIFNFIFJ1bnRpbWUgRW52aXJvbm1lbnQKSlZNOiBKYXZhIEhvdFNwb3QoVE0pIDY0LUJpdCBTZXJ2ZXIgVk0KRGVmYXVsdCBFbmNvZGluZzogVVRGLTgKTGFuZ3VhZ2U6IGVuCkNvdW50cnk6IFVTCi0tPjwvZz48L3N2Zz4=" class="uml" alt="uml diagram" title="" /></p>
+<h2 id="reference">Reference</h2>
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="lists.singly.linked_stack.LinkedStack" class="doc doc-heading">
+          <code>lists.singly.linked_stack.LinkedStack</code>
+
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+        <p class="doc doc-class-bases">
+          Bases: <code><a class="autorefs autorefs-internal" title="lists.singly.linked_list.LinkedList" href="../linked_list/#lists.singly.linked_list.LinkedList">LinkedList</a></code></p>
+
+
+      <p>This class contains an implementation of the Stack class.
+A Stack follows - <code>LIFO - Last-In-First-Out</code> policy</p>
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h3 id="lists.singly.linked_stack.LinkedStack.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span></code>
+
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Initialize top pointer</p>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../linked_list/" class="btn btn-neutral float-left" title="Linked List"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../linked_queue/" class="btn btn-neutral float-right" title="Linked Queue">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/rishacha/py_interview" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../linked_list/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../linked_queue/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
