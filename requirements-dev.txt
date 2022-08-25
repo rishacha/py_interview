@@ -1,0 +1,8 @@
+pylint
+flake8
+mypy
+pytest
+coverage
+pydocstyle
+black
+# pytest-cov

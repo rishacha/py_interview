@@ -1,32 +1,33 @@
 from lists.singly.linked_list import LinkedList
 
+
 class CircularList(LinkedList):
     def __init__(self, data=None):
         super().__init__(data)
-    
+
     def append_head(self, data):
         return self.append(data)
-    
+
     def append_tail(self, data):
         return self.append(data)
 
-    def append(self,data):
+    def append(self, data):
         temp = self.head
         while temp.next is not None and temp.next != self.head:
             temp = temp.next
         temp.next = self.Node(data)
         temp = temp.next
         temp.next = self.head
-        self.size+=1
-    
+        self.size += 1
+
     @LinkedList.validate
     @LinkedList.check_empty
-    def delete(self,data):
+    def delete(self, data):
         ptr = None
         temp = self.head
 
         is_found = False
-        while temp.next is not None and temp.next!=self.head:
+        while temp.next is not None and temp.next != self.head:
             if temp.data == data:
                 is_found = True
                 if temp == self.head:
@@ -49,7 +50,7 @@ class CircularList(LinkedList):
 
     @LinkedList.validate
     @LinkedList.check_empty
-    def search(self,data):
+    def search(self, data):
         """
         Returns True if the data exists in the circular list
         Return False if the data doesn't exist
@@ -63,10 +64,10 @@ class CircularList(LinkedList):
         if temp.data == data:
             return True
         return False
+
     def traverse(self):
         temp = self.head
         while temp.next is not None and temp.next != self.head:
             print(temp.data, end="-->")
             temp = temp.next
         print(temp.data, end="-->head-CIRCULAR")
-

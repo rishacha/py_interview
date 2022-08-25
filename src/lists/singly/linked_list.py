@@ -2,35 +2,39 @@
 This class implements a **SINGLY** linked list
 """
 
-class LinkedList():
+
+class LinkedList:
     def validate(func):
         def inner(self, data):
             if data is None:
                 raise Exception("Data type cannot be None")
             return func(self, data)
+
         return inner
-    class Node():
-        def __init__(self,data) -> None:
+
+    class Node:
+        def __init__(self, data) -> None:
             """
-            A `node` contains - 
+            A `node` contains -
 
             1. Data of the node element
-            1. A pointer to the `next` Node 
+            1. A pointer to the `next` Node
             """
             if data is None:
                 raise Exception("Data type cannot be None")
             self.data = data
             self.next = None
+
         def traverse(self):
             """
             Will test the traversal for this list in the test class
             """
-            print(self.data, end = "-->")
+            print(self.data, end="-->")
             if self.next is not None:
                 return self.next.traverse()
             return
 
-    def __init__(self,data=None):
+    def __init__(self, data=None):
         if data is None:
             # raise Exception("Data cannot be None")
             self.size = 0
@@ -39,35 +43,37 @@ class LinkedList():
         self.head = self.Node(data)
         self.last = self.head
         self.size = 1
-    
+
     def empty(self):
         return True if self.size == 0 else False
 
     def check_empty(func):
-        def inner(self,*args,**kwargs):
+        def inner(self, *args, **kwargs):
             if self.empty():
                 raise Exception("List is empty !!")
-            return func(self, *args,**kwargs)
+            return func(self, *args, **kwargs)
+
         return inner
-    
+
     @check_empty
     def traverse(self):
         """
         Prints the list in order
         """
         return self.head.traverse()
+
     @validate
-    def append_tail(self,data):
+    def append_tail(self, data):
         """
         Add an element to the tail of the list
         """
-        
+
         self.last.next = self.Node(data)
         self.last = self.last.next
-        self.size +=1
-    
+        self.size += 1
+
     @validate
-    def append_head(self,data):
+    def append_head(self, data):
         """
         Add an element to the head of the list
         """
@@ -78,7 +84,7 @@ class LinkedList():
 
     @validate
     @check_empty
-    def delete(self,data):
+    def delete(self, data):
         """
         Deletes first occurence of the data in the list
         """
@@ -102,8 +108,6 @@ class LinkedList():
             temp = temp.next
         if not is_found:
             print(f"{data} not found in List")
-    
-    
 
     @validate
     @check_empty
@@ -113,12 +117,12 @@ class LinkedList():
         Return False if the data doesn't exist
         """
         temp = self.head
-        while temp!=None:
-            if temp.data==data:
+        while temp != None:
+            if temp.data == data:
                 return True
             temp = temp.next
         return False
-    
+
     # def reverse(self):
     #     """
     #     #Reverses the list
@@ -127,15 +131,3 @@ class LinkedList():
 
     # def concatenate(self,list2):
     #     pass
-    
-
-    
-            
-        
-
-        
-        
-            
-    
-        
-    
