@@ -11,7 +11,7 @@ class BinaryTreeNode:
 
     def insert(self):
         """
-        Insertion here can occur in any arbitrary order since it's not balanced
+        Insertion should balance the tree !!
         """
         pass
 

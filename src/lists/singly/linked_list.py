@@ -3,15 +3,28 @@ This class implements a **SINGLY** linked list
 """
 
 
+from typing import Any, Callable, TypeVar
+
+F = TypeVar("F", bound=Callable[..., Any])
+
+
+def validate(func: F) -> F:
+    """
+    Validate the data for the node.
+    """
+
+    def inner(self: Any, data: Any) -> F:
+        if data is None:
+            raise Exception("Data type cannot be None")
+        return func(self, data)
+
+    return inner
+
+
 class LinkedList:
-    def validate(func):
-        def inner(self, data):
-            if data is None:
-                raise Exception("Data type cannot be None")
-            return func(self, data)
-
-        return inner
-
+    """
+    Class contains code for a linked list
+    """
     class Node:
         def __init__(self, data) -> None:
             """
@@ -22,8 +35,8 @@ class LinkedList:
             """
             if data is None:
                 raise Exception("Data type cannot be None")
-            self.data = data
-            self.next = None
+            self.data: Any = data
+            self.next: Any = None
 
         def traverse(self):
             """
@@ -34,7 +47,7 @@ class LinkedList:
                 return self.next.traverse()
             return
 
-    def __init__(self, data=None):
+    def __init__(self, data=None) -> None:
         if data is None:
             # raise Exception("Data cannot be None")
             self.size = 0
@@ -44,7 +57,7 @@ class LinkedList:
         self.last = self.head
         self.size = 1
 
-    def empty(self):
+    def empty(self) -> bool:
         return True if self.size == 0 else False
 
     def check_empty(func):
@@ -123,11 +136,14 @@ class LinkedList:
             temp = temp.next
         return False
 
-    # def reverse(self):
-    #     """
-    #     #Reverses the list
-    #     """
-    #     pass
+    def reverse(self) -> None:
+        """
+        Reverses the list.
+
+        Write a recursive function for this.
+        """
+        self.head = self.reverse(self.head.next)
+
 
     # def concatenate(self,list2):
     #     pass

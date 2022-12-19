@@ -6,51 +6,34 @@ The following is taken from [repo](https://github.com/jwasham/coding-interview-u
 
 ### Topics of Study
 
-- [Algorithmic complexity / Big-O / Asymptotic analysis](#algorithmic-complexity--big-o--asymptotic-analysis)
-- [Data Structures](#data-structures)
-    - [Arrays](#arrays)
-    - [Linked Lists](#linked-lists)
-    - [Stack](#stack)
-    - [Queue](#queue)
-    - [Hash table](#hash-table)
-- [More Knowledge](#more-knowledge)
-    - [Binary search](#binary-search)
-    - [Bitwise operations](#bitwise-operations)
-- [Trees](#trees)
-    - [Trees - Notes & Background](#trees---notes--background)
-    - [Binary search trees: BSTs](#binary-search-trees-bsts)
-    - [Heap / Priority Queue / Binary Heap](#heap--priority-queue--binary-heap)
-    - balanced search trees (general concept, not details)
-    - traversals: preorder, inorder, postorder, BFS, DFS
-- [Sorting](#sorting)
-    - selection
-    - insertion
-    - heapsort
-    - quicksort
-    - merge sort
-- [Graphs](#graphs)
-    - directed
-    - undirected
-    - adjacency matrix
-    - adjacency list
-    - traversals: BFS, DFS
-- [Even More Knowledge](#even-more-knowledge)
-    - [Recursion](#recursion)
-    - [Dynamic Programming](#dynamic-programming)
-    - [Design Patterns](#design-patterns)
-    - [Combinatorics (n choose k) & Probability](#combinatorics-n-choose-k--probability)
-    - [NP, NP-Complete and Approximation Algorithms](#np-np-complete-and-approximation-algorithms)
-    - [How computers process a program](#how-computers-process-a-program)
-    - [Caches](#caches)
-    - [Processes and Threads](#processes-and-threads)
-    - [Testing](#testing)
-    - [String searching & manipulations](#string-searching--manipulations)
-    - [Tries](#tries)
-    - [Floating Point Numbers](#floating-point-numbers)
-    - [Unicode](#unicode)
-    - [Endianness](#endianness)
-    - [Networking](#networking)
-- [Final Review](#final-review)
+- [Study Plan](#study-plan)
+  - [Table of Contents](#table-of-contents)
+    - [Topics of Study](#topics-of-study)
+    - [Getting the Job](#getting-the-job)
+    - [Optional Extra Topics \& Resources](#optional-extra-topics--resources)
+  - [Algorithmic complexity / Big-O / Asymptotic analysis](#algorithmic-complexity--big-o--asymptotic-analysis)
+  - [Data Structures](#data-structures)
+  - [More Knowledge](#more-knowledge)
+  - [Trees](#trees)
+  - [Sorting](#sorting)
+  - [Graphs](#graphs)
+  - [Even More Knowledge](#even-more-knowledge)
+  - [Final Review](#final-review)
+  - [Update Your Resume](#update-your-resume)
+  - [Find a Job](#find-a-job)
+  - [Interview Process \& General Interview Prep](#interview-process--general-interview-prep)
+  - [Be thinking of for when the interview comes](#be-thinking-of-for-when-the-interview-comes)
+  - [Have questions for the interviewer](#have-questions-for-the-interviewer)
+  - [Once You've Got The Job](#once-youve-got-the-job)
+  - [Additional Books](#additional-books)
+  - [System Design, Scalability, Data Handling](#system-design-scalability-data-handling)
+  - [Additional Learning](#additional-learning)
+  - [Additional Detail on Some Subjects](#additional-detail-on-some-subjects)
+  - [Video Series](#video-series)
+  - [Computer Science Courses](#computer-science-courses)
+  - [Algorithms implementation](#algorithms-implementation)
+  - [Papers](#papers)
+  - [LICENSE](#license)
 
 ### Getting the Job
 
@@ -65,50 +48,34 @@ The following is taken from [repo](https://github.com/jwasham/coding-interview-u
 
 ### Optional Extra Topics & Resources
 
-- [Additional Books](#additional-books)
-- [System Design, Scalability, Data Handling](#system-design-scalability-data-handling) (if you have 4+ years experience)
-- [Additional Learning](#additional-learning)
-    - [Compilers](#compilers)
-    - [Emacs and vi(m)](#emacs-and-vim)
-    - [Unix command line tools](#unix-command-line-tools)
-    - [Information theory](#information-theory-videos)
-    - [Parity & Hamming Code](#parity--hamming-code-videos)
-    - [Entropy](#entropy)
-    - [Cryptography](#cryptography)
-    - [Compression](#compression)
-    - [Computer Security](#computer-security)
-    - [Garbage collection](#garbage-collection)
-    - [Parallel Programming](#parallel-programming)
-    - [Messaging, Serialization, and Queueing Systems](#messaging-serialization-and-queueing-systems)
-    - [A*](#a)
-    - [Fast Fourier Transform](#fast-fourier-transform)
-    - [Bloom Filter](#bloom-filter)
-    - [HyperLogLog](#hyperloglog)
-    - [Locality-Sensitive Hashing](#locality-sensitive-hashing)
-    - [van Emde Boas Trees](#van-emde-boas-trees)
-    - [Augmented Data Structures](#augmented-data-structures)
-    - [Balanced search trees](#balanced-search-trees)
-        - AVL trees
-        - Splay trees
-        - Red/black trees
-        - 2-3 search trees
-        - 2-3-4 Trees (aka 2-4 trees)
-        - N-ary (K-ary, M-ary) trees
-        - B-Trees
-    - [k-D Trees](#k-d-trees)
-    - [Skip lists](#skip-lists)
-    - [Network Flows](#network-flows)
-    - [Disjoint Sets & Union Find](#disjoint-sets--union-find)
-    - [Math for Fast Processing](#math-for-fast-processing)
-    - [Treap](#treap)
-    - [Linear Programming](#linear-programming-videos)
-    - [Geometry, Convex hull](#geometry-convex-hull-videos)
-    - [Discrete math](#discrete-math)
-    - [Machine Learning](#machine-learning)
-- [Additional Detail on Some Subjects](#additional-detail-on-some-subjects)
-- [Video Series](#video-series)
-- [Computer Science Courses](#computer-science-courses)
-- [Papers](#papers)
+- [Study Plan](#study-plan)
+  - [Table of Contents](#table-of-contents)
+    - [Topics of Study](#topics-of-study)
+    - [Getting the Job](#getting-the-job)
+    - [Optional Extra Topics \& Resources](#optional-extra-topics--resources)
+  - [Algorithmic complexity / Big-O / Asymptotic analysis](#algorithmic-complexity--big-o--asymptotic-analysis)
+  - [Data Structures](#data-structures)
+  - [More Knowledge](#more-knowledge)
+  - [Trees](#trees)
+  - [Sorting](#sorting)
+  - [Graphs](#graphs)
+  - [Even More Knowledge](#even-more-knowledge)
+  - [Final Review](#final-review)
+  - [Update Your Resume](#update-your-resume)
+  - [Find a Job](#find-a-job)
+  - [Interview Process \& General Interview Prep](#interview-process--general-interview-prep)
+  - [Be thinking of for when the interview comes](#be-thinking-of-for-when-the-interview-comes)
+  - [Have questions for the interviewer](#have-questions-for-the-interviewer)
+  - [Once You've Got The Job](#once-youve-got-the-job)
+  - [Additional Books](#additional-books)
+  - [System Design, Scalability, Data Handling](#system-design-scalability-data-handling)
+  - [Additional Learning](#additional-learning)
+  - [Additional Detail on Some Subjects](#additional-detail-on-some-subjects)
+  - [Video Series](#video-series)
+  - [Computer Science Courses](#computer-science-courses)
+  - [Algorithms implementation](#algorithms-implementation)
+  - [Papers](#papers)
+  - [LICENSE](#license)
 
 ---
 
@@ -119,7 +86,7 @@ The following is taken from [repo](https://github.com/jwasham/coding-interview-u
 - Don't worry if you don't understand all the math behind it.
 - You just need to understand how to express the complexity of an algorithm in terms of Big-O.
 - [x] [Harvard CS50 - Asymptotic Notation (video)](https://www.youtube.com/watch?v=iOq5kSKqeR4)
-- [ ] [Big O Notations (general quick tutorial) (video)](https://www.youtube.com/watch?v=V6mKVRU1evU)
+- [x] [Big O Notations (general quick tutorial) (video)](https://www.youtube.com/watch?v=V6mKVRU1evU)
 - [ ] [Big O Notation (and Omega and Theta) - best mathematical explanation (video)](https://www.youtube.com/watch?v=ei-A_wy5Yxw&index=2&list=PL1BaGV1cIH4UhkL8a9bJGG356covJ76qN)
 - [ ] [Skiena (video)](https://www.youtube.com/watch?v=z1mkCe3kVUA)
 - [ ] [UC Berkeley Big O (video)](https://archive.org/details/ucberkeley_webcast_VIS4YDpuP98)
